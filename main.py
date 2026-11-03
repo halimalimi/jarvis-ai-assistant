@@ -2499,16 +2499,7 @@ class JarvisLive:
                     if not self._briefing_sent and get_brief_enabled() and self._awake:
                         self._briefing_sent = True
                         tg.create_task(self._send_startup_briefing())
-
-                        # Personalized Hello Section
-                    async def _say_creator_intro():
-                        await asyncio.sleep(1.5)
-                        if self.session and self._awake:
-                            await self.session.send_client_content(
-                                turns={"role": "user", "parts": [{"text": "Say clearly out loud: Hello, I am Jarvis, built and customized by Halim Alimi."}]},
-                                turn_complete=True,
-                            )
-                    tg.create_task(_say_creator_intro())
+                    
 
             except KeyboardInterrupt:
                 raise
